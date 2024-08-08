@@ -59,6 +59,13 @@ struct SetRfTxPinCommand {
   pin:uint8;
 }
 
+
+struct ActionCommand {
+  type:uint8;
+  power:uint8;
+  duration:uint8;
+}
+
 union LocalToHubMessagePayload {
 
   // Wifi stuff
@@ -84,7 +91,8 @@ union LocalToHubMessagePayload {
   AccountUnlinkCommand,
 
   // RF Transmitter stuff
-  SetRfTxPinCommand
+  SetRfTxPinCommand,
+  ActionCommand
 }
 
 table LocalToHubMessage (fs_serializer) {
